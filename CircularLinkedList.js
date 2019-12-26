@@ -49,7 +49,7 @@ class LList {
         let currentNode = this.head
         while(currentNode.next != null && currentNode.next.elem !== 'head') {
             console.log(currentNode.next.elem)
-            currentNode = currentNode.next99999
+            currentNode = currentNode.next
         }
         console.log('链表的长度为：', this.length)
     }
