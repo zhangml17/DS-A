@@ -30,3 +30,5 @@ Data Structures & Algorithms with JavaScript
 + 数制间的转换
 + 回文序列的判断
 + 实现递归
+## 列表
+适用于数据元素不太多，或不用再很长的列表中查找元素或排序时
