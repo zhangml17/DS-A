@@ -1,5 +1,5 @@
 # DS&A
-Data Structures & Algorithms
+Data Structures & Algorithms with JavaScript
 ## 链表
 ### 单链表
 插入或删除时需要从头查找要操作的元素的前一个节点
@@ -23,3 +23,10 @@ Data Structures & Algorithms
 ## 集合
 + 集合中成员无序
 + 集合中成员不重复
+## 栈(LIFO)
+栈是一种高效的数据结构，因为数据只能在栈顶添加或删除
+例：[最小栈](https://leetcode-cn.com/problems/min-stack/)
+### 栈的应用
++ 数制间的转换
++ 回文序列的判断
++ 实现递归
