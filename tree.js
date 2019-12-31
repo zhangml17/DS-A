@@ -51,7 +51,7 @@ class BST {
         }
         return currentNode.val
     }
-    // 最小值
+    // 整个二叉树的最小值
     getMin() {
         let currentNode = this.root
         while( currentNode.left != null) {
@@ -72,6 +72,46 @@ class BST {
             }
         }
         return null
+    }
+    // 查找指定根节点的最小节点
+    findSmallest(node) {
+        while(node && node.left != null) {
+            node = node.left
+        }
+        return node
+    }
+    removeNode(node, val) {
+        if(node == null) {
+            return null
+        }
+        if(val === node.val) {
+            // 叶子节点
+            if(node.left == null && node.right == null) {
+                return null
+            }
+            // 没有左子节点的节点
+            if(node.left == null) {
+                return node.right
+            }
+            // 没有右子节点的节点
+            if(node.right == null) {
+                return node.left
+            }
+            // 有两个子节点的节点(找右子树的最小值)
+            let tempNode = this.findSmallest(node.right)
+            node.val = tempNode.val
+            node.right = this.removeNode(node.right, tempNode.val)
+            return node
+        }else if(val < node.val) {
+            node.left = this.removeNode(node.left, val)
+            return node
+        }else{
+            node.right = this.removeNode(node.right, val)
+            return node
+        }
+    }
+    remove(val) {
+        root = this.removeNode(this.root, val)
     }
 }
 // 中序遍历(左 --> 根 --> 右)
@@ -109,10 +149,13 @@ tree.insert(37)
 tree.insert(3)
 tree.insert(99)
 tree.insert(22)
-// console.log('中序遍历--') 
-// inOrder(tree.root)
+console.log('中序遍历--') 
+inOrder(tree.root)
 // console.log('先序遍历--') 
 // preOrder(tree.root)
 // console.log('后序遍历--') 
 // postOrder(tree.root)
+tree.remove(45)
+console.log('中序遍历--') 
+inOrder(tree.root)
 
